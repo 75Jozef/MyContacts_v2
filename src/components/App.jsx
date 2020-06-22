@@ -1,16 +1,28 @@
 import React from "react";
 import Card from "./Card.jsx";
 import contacts from "../contacts.js";
-import Avatar from "./Avatar";
+
+function createCard(contact) {
+  return (
+    <Card
+      key={contact.id}
+      name={contact.name}
+      img={contact.imgURL}
+      phone={contact.phone}
+      email={contact.email}
+      id={contact.id}
+    />
+  );
+}
 
 function App() {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
 
-      <Avatar src="https://cloudia.hnonline.sk/r1200x/f5c65af02733e6647343a40e17453770" />
+      {contacts.map(createCard)}
 
-      <Card
+      {/*   <Card
         name={contacts[0].name}
         phone={contacts[0].phone}
         email={contacts[0].email}
@@ -27,7 +39,7 @@ function App() {
         phone={contacts[2].phone}
         email={contacts[2].email}
         img={contacts[2].imgURL}
-      />
+      /> */}
     </div>
   );
 }
